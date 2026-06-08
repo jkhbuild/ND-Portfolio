@@ -71,10 +71,36 @@ export interface Profile {
     lead: string;
     /** Bullet lines under the lead (each its own line). */
     bullets: string[];
+    /** Labels for the hero action links/buttons. */
+    actions: {
+      /** Text shown on the résumé download button. */
+      resumeLabel: string;
+      /** Small format label shown inside the résumé button. */
+      resumeFormat: string;
+      /** Text shown next to the scroll cue. */
+      scrollLabel: string;
+    };
   };
   /** Path to the résumé PDF under /public, e.g. "/Nirmita-Dave-CV.pdf". */
   resumePath: string;
   about: {
+    /** Section index label, e.g. "§ 01". */
+    sectionIndex: string;
+    /** Section heading. */
+    title: string;
+    /** Portrait metadata for the About figure. */
+    portrait: {
+      /** Image path under /public, e.g. "/images/portrait/portrait.jpeg". */
+      src: string;
+      /** Description for screen readers / when the image can't load. */
+      alt: string;
+      /** Caption shown on the portrait tab. */
+      caption: string;
+      /** Intrinsic image width for next/image. */
+      width: number;
+      /** Intrinsic image height for next/image. */
+      height: number;
+    };
     /** First (large, italic) paragraph. */
     lead: string;
     /** Remaining paragraphs. */
@@ -85,19 +111,38 @@ export interface Profile {
     meta: { label: string; value: string }[];
   };
   photography: {
+    /** Section index label, e.g. "§ 02". */
+    sectionIndex: string;
+    /** Section heading. */
+    title: string;
     /** Small left intro line, e.g. 'Series — "Still / Unstill" · 2021–2025'. */
     series: string;
     /** Section sub-heading. */
     lead: string;
+    /** Small right intro line that explains the gallery interaction. */
+    enlargeCue: string;
   };
   builtWork: {
+    /** Section index label, e.g. "§ 03". */
+    sectionIndex: string;
+    /** Section heading. */
+    title: string;
     /** Small left intro line, e.g. "Selected — heavy civil & transit". */
     intro: string;
-    /**
-     * How many empty "coming soon" tiles to keep at the end of the gallery.
-     * The site also auto-pads to an even number of tiles. Set 0 for none.
-     */
-    minPlaceholders: number;
+    /** Small right intro line that explains the gallery interaction. */
+    enlargeCue: string;
+  };
+  skills: {
+    /** Section index label, e.g. "§ 04". */
+    sectionIndex: string;
+    /** Section heading. */
+    title: string;
+    /** Section sub-heading. */
+    lead: string;
+    /** Left column heading, e.g. "Software". */
+    softwareLabel: string;
+    /** Right column heading, e.g. "Certifications". */
+    certificationsLabel: string;
   };
   footer: {
     /** Two-line blurb in the footer (each item is a line). */

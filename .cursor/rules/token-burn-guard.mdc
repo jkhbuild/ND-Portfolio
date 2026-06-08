@@ -1,0 +1,36 @@
+---
+description: Warn user when session is burning Cursor quota too fast
+alwaysApply: true
+---
+
+# Token burn guard
+
+Alert the user **immediately** (before continuing) when any trigger fires. Use this exact prefix:
+
+> **⚠️ Token burn alert:** [reason]. Recommend: [one concrete cheaper action].
+
+## Triggers — warn before doing the action
+
+1. **Disallowed subagent** — about to call planner/verifier/reviewer/Task for planning or review (use Opus terminal prompt instead). **Implementer subagent is allowed** — no alert for implementer alone.
+2. **MCP call** — about to use any MCP tool.
+3. **Second+ full-repo scan** — already read 8+ files this chat and user only asked for a small fix.
+4. **Multi-phase scope** — user said "continue phases" / "remaining phases" without naming one phase.
+5. **Browser verification** — about to verify UI via automation instead of asking user to check localhost.
+6. **Long orchestration chain** — implementer → verifier or multiple implementer passes in one session without user opt-in.
+
+## On alert, recommend one of
+
+- New chat scoped to **one phase file** only.
+- User runs terminal/browser checks and pastes results.
+- Opus in terminal for planning/review; Cursor for a **single** implementer pass.
+- Disable MCP in Cursor Settings if not already off.
+
+## Session bookkeeping
+
+At the **start** of substantial work, note in one line: `Mode: lean (no MCP; plan/review → Opus terminal; implementer OK)`.
+
+If user says **"burn ok"** or **"use subagent"**, stop alerting for that chat.
+
+## Why this project burned faster than LFwork
+
+ND-Portfolio used planner/implementer loops, browser MCP, and one long multi-phase chat. LFwork likely used direct edits in shorter chats. Prefer the LFwork pattern here unless user opts into heavy orchestration.

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1206 1481" role="img" aria-labelledby="title desc">
+  <title id="title">Portrait placeholder</title>
+  <desc id="desc">Abstract framed portrait placeholder for the About section.</desc>
+  <rect width="1206" height="1481" fill="#20201d"/>
+  <path d="M160 1180c132-220 274-330 426-330s306 110 462 330" fill="none" stroke="#ece7df" stroke-width="34" opacity="0.48"/>
+  <circle cx="603" cy="526" r="198" fill="none" stroke="#ece7df" stroke-width="34" opacity="0.52"/>
+  <path d="M214 188h778M214 1293h778M214 188v1105M992 188v1105" fill="none" stroke="#9a5736" stroke-width="18" opacity="0.8"/>
+  <path d="M300 1012c86-76 188-114 306-114 116 0 218 38 306 114" fill="none" stroke="#5f8d92" stroke-width="22" opacity="0.7"/>
+</svg>

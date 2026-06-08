@@ -65,6 +65,27 @@ M
   - **Watch item:** `next/font` Cormorant Garamond is configured as a variable font (no explicit `weight`, italic+roman). If the build errors with "Missing weight for font Cormorant_Garamond", add `weight: ["400","500","600"]` to that loader in `src/app/layout.tsx`.
 - Not yet done in this phase: live verification of the 4 theme combos, no-flash check, scroll-spy/reveal behavior. Git branch/commit deferred (terminal down; commit only on request).
 - 2026-06-07 — Resume attempt selected the pending Phase 1 verification track from the handoff. Terminal commands still returned no usable status/output, so `npm install`, `npm run build`, `npm run lint`, and live browser checks remain blocked. Static pass applied the known `next/font` watch item by adding explicit Cormorant Garamond weights (`400`, `500`, `600`) in `src/app/layout.tsx`.
+- 2026-06-07 — Continuation attempt retried the Phase 1 verification gate. `npm install`, `node --version; npm --version`, `cmd /c "node --version && npm --version"`, and a minimal `Write-Output` probe all returned no usable shell exit status/output through the command runner. Verified via workspace file search that `package-lock.json` and `node_modules/` were not created, so `npm run build`, `npm run lint`, and live browser acceptance checks remain blocked by terminal execution rather than a known source-code failure. No source fixes were applied; the existing Cormorant Garamond weights in `src/app/layout.tsx` are still present.
+- 2026-06-07 — User-run terminal verification progressed: `npm install` completed and created `package-lock.json`; `npm run build` passed after install. `npm run lint` failed before source linting with an ESLint configuration circular-structure error from the legacy `FlatCompat` path. Replaced `eslint.config.mjs` with Next 16 flat-config imports (`eslint-config-next/core-web-vitals` + `eslint-config-next/typescript`) and global ignores. Command-runner output is still unavailable in-agent, so lint/build rerun and live browser checks need user-terminal confirmation.
+- 2026-06-07 — Browser MCP verification on `http://localhost:3001` found and fixed follow-up Phase 1 issues: lint was also checking the archived `design_handoff_portfolio` prototype, so it is now globally ignored; `ThemeControls` was refactored to avoid effect-time state updates, preserve no-flash theme attributes, suppress expected hydration differences on the four theme buttons, and merge rapid palette/mode clicks from the current stored snapshot; section stubs now mount `Reveal` wrappers so reveal behavior is testable. Chrome checks confirmed all four Dusk/Pond × light/dark states update `data-*`, `localStorage`, active button classes, and `aria-pressed`; the hydration overlay is gone; nav `scrolled` + active section update after browser scroll; reveal elements animate in; reduced-motion reveal CSS exists; at 500px nav links are hidden while theme controls remain visible. User-terminal `npm run lint` and `npm run build` still need to be rerun after these fixes.
 
 ## Closeout
-(Filled at Phase End.)
+Closed: 2026-06-07
+
+### Verification evidence
+- `npm install`: completed in the user terminal; `package-lock.json` was created.
+- `npm run build`: passed in the user terminal after install, and the user confirmed the final rerun was done after follow-up fixes.
+- `npm run lint`: initial failures were fixed by replacing the legacy ESLint compatibility config, ignoring the archived design prototype, and refactoring React hook lint violations. The user confirmed the final rerun was done; raw post-fix output was not visible in-agent.
+- Browser MCP on `http://localhost:3001`: confirmed all four Dusk/Pond x light/dark combinations update `<html data-palette data-mode>`, `localStorage`, active classes, and `aria-pressed`; no Next hydration overlay; nav `scrolled` state and active section update after scroll; reveal elements animate in; reduced-motion reveal CSS is present; at 500px nav links hide while theme controls remain visible.
+
+### Acceptance criteria
+- Functional: met. Theme controls are keyboard-operable buttons with `aria-pressed`, persist to `localStorage`, and are restored before paint by the inline script.
+- Visual: met for the Phase 1 shell. Nav/footer typography, segmented controls, colour tokens, reveal behavior, and responsive nav behavior match the handoff baseline.
+
+### Tech debt / follow-ups
+- Commit/PR was intentionally deferred because the user has a standing rule not to commit unless explicitly asked.
+- Raw post-fix lint/build output is not captured in-agent; if needed, rerun `npm run lint` and `npm run build` before the next commit.
+- Real assets remain deferred to Phase 5 by plan.
+
+### Decisions
+- No new ADRs were added during Phase 1 closeout. Existing ADR-0001 through ADR-0007 remain accepted.

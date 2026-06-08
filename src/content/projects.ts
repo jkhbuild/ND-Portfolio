@@ -16,7 +16,7 @@ import type { Project } from "./types";
  *  ORDERING: the newest project (BOTTOM of this list) shows FIRST (top) on the
  *  website. Just keep adding to the bottom — no numbering or reordering.
  *
- *  tags: short labels in square brackets, each in quotes, separated by commas.
+ *  Projects without a photo yet can omit the img line (see instructions above).
  * ============================================================================
  */
 export const projects: Project[] = [

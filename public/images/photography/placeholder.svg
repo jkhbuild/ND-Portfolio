@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-labelledby="title desc">
+  <title id="title">Photography placeholder</title>
+  <desc id="desc">Abstract placeholder image for the photography gallery.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#ece7df"/>
+      <stop offset="48%" stop-color="#d9c8bb"/>
+      <stop offset="100%" stop-color="#5f8d92"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="38%" cy="28%" r="40%">
+      <stop offset="0%" stop-color="#f4f0e8" stop-opacity="0.95"/>
+      <stop offset="62%" stop-color="#c67c54" stop-opacity="0.26"/>
+      <stop offset="100%" stop-color="#c67c54" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="1500" fill="url(#sky)"/>
+  <rect width="1200" height="1500" fill="url(#sun)"/>
+  <path d="M0 1040 C210 940 390 1010 585 950 C765 895 950 800 1200 890 L1200 1500 L0 1500 Z" fill="#20201d" opacity="0.16"/>
+  <path d="M0 1155 C260 1060 440 1150 650 1095 C850 1042 980 1015 1200 1084 L1200 1500 L0 1500 Z" fill="#20201d" opacity="0.28"/>
+  <g opacity="0.68" stroke="#20201d" stroke-width="8" stroke-linecap="round">
+    <path d="M618 520 C606 705 594 902 578 1218"/>
+    <path d="M612 610 C540 558 486 508 430 425"/>
+    <path d="M606 682 C688 622 762 560 846 470"/>
+    <path d="M596 790 C516 762 448 720 374 650"/>
+    <path d="M590 865 C672 842 744 798 826 730"/>
+  </g>
+  <rect x="88" y="103" width="1024" height="1294" fill="none" stroke="#f4f0e8" stroke-opacity="0.42" stroke-width="2"/>
+  <text x="600" y="1330" text-anchor="middle" fill="#f4f0e8" font-family="monospace" font-size="34" letter-spacing="8">PHOTO PLACEHOLDER</text>
+</svg>

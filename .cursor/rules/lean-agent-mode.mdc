@@ -1,0 +1,35 @@
+---
+description: Lean Cursor mode — no MCP; planning/review in Opus terminal; implementer OK
+alwaysApply: true
+---
+
+# Lean agent mode (ND-Portfolio)
+
+Default to the cheap path. Planning and review live in **Opus terminal** — see `composer-orchestration.mdc`.
+
+## Do NOT use (unless user explicitly asks)
+
+- **All MCP tools** — browser, Vercel, Stripe, Prisma, app-control, etc.
+- **Planner / verifier / reviewer subagents** in Cursor — user runs **Claude Opus 4.8** in terminal; Composer supplies paste-ready prompts.
+- **Browser automation** — user verifies UI manually at `http://localhost:3001`.
+- **Repeated terminal probes** — if shell fails once, ask user to run commands and paste output.
+
+## DO use
+
+- **Composer as orchestrator** — Opus prompts for plan/review; implement after user pastes Opus output.
+- **`/implementer` subagent** for multi-file phase work when appropriate.
+- Read **only** the active phase file + latest handoff (paths in `CLAUDE.md`).
+- **One phase per chat** when possible.
+- User runs: `npm run lint`, `npm run build`, `npm run dev`.
+- Append results to the phase execution log; handoff only at session end or phase close.
+
+## Phased-workflow
+
+- Follow phase files in `docs/0N_*.md` (authored via Opus terminal, implemented in Cursor).
+- Do not reload full skills corpus every turn — phase file + `docs/00_plan.md` only.
+- No commit unless user explicitly asks.
+
+## Content rules (unchanged)
+
+- Owner-editable content only in `src/content/*.ts`.
+- Append photos/projects at bottom → newest-first render.

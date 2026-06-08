@@ -29,12 +29,26 @@ export const profile: Profile = {
       "Licensed, Council of Architecture (India)",
       "Working in New York",
     ],
+    actions: {
+      resumeLabel: "Download Résumé",
+      resumeFormat: "PDF",
+      scrollLabel: "Scroll — begin the section index",
+    },
   },
 
   // Put your résumé PDF in the /public folder and write its name here.
   resumePath: "/Nirmita-Dave-CV.pdf",
 
   about: {
+    sectionIndex: "§ 01",
+    title: "About",
+    portrait: {
+      src: "/images/portrait/portrait.jpeg",
+      alt: "Portrait of Nirmita Dave",
+      caption: "Nirmita Dave — architect & image-maker",
+      width: 1206,
+      height: 769,
+    },
     lead: "I design buildings the way I take photographs — looking for the one honest angle, then holding still long enough for the light to arrive.",
     paragraphs: [
       "Trained as an architect, I spend my days inside coordination models, construction schedules and the unglamorous arithmetic of getting a thing actually built. I like that rigour. I like knowing a wall will stand. But the part of me that refuses to fully conform keeps wandering off to photograph drowned trees, tangled wires and a single lotus that didn't ask permission to bloom.",
@@ -51,13 +65,26 @@ export const profile: Profile = {
   },
 
   photography: {
+    sectionIndex: "§ 02",
+    title: "Photography",
     series: 'Series — "Still / Unstill" · 2021–2025',
     lead: "Found light, off the clock. Shot on phone & film, untidy on purpose.",
+    enlargeCue: "Tap any frame to enlarge ↗",
   },
 
   builtWork: {
+    sectionIndex: "§ 03",
+    title: "Built Work",
     intro: "Selected — heavy civil & transit",
-    minPlaceholders: 2,
+    enlargeCue: "Tap any frame to enlarge ↗",
+  },
+
+  skills: {
+    sectionIndex: "§ 04",
+    title: "Skills & Certifications",
+    lead: "The technical spine behind the work — tools, codes & credentials.",
+    softwareLabel: "Software",
+    certificationsLabel: "Certifications",
   },
 
   footer: {

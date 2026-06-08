@@ -1,0 +1,45 @@
+---
+description: Composer orchestrates; planning and review run in terminal via Claude Opus 4.8
+alwaysApply: true
+---
+
+# Composer orchestration (Opus terminal)
+
+**Roles**
+
+| Role | Who | Where |
+|------|-----|--------|
+| Planning | **User + Claude Opus 4.8** | Terminal (outside Cursor) |
+| Review | **User + Claude Opus 4.8** | Terminal (outside Cursor) |
+| Orchestration | **Composer (this agent)** | Cursor chat |
+| Implementation | **Composer or `/implementer` subagent** | Cursor |
+
+## Composer MUST
+
+- **Give ready-to-paste Opus prompts** when planning or review is needed — do not plan or review in-chat yourself.
+- Wait for the user to paste Opus output (phase files, review notes, ADRs) before treating planning/review as done.
+- Invoke **`/implementer`** (or implement directly) after Opus-produced phase docs or user-approved scope exist.
+- Read only the active phase file + latest handoff unless implementation requires more.
+
+## Composer MUST NOT
+
+- Invoke **planner**, **verifier**, or **reviewer** subagents in Cursor.
+- Write or rewrite locked phase plans (`docs/0N_*.md` locked sections) without Opus output the user pasted.
+- Perform formal phase closeout review in Cursor — supply an Opus review prompt instead.
+
+## Opus prompt format
+
+When the user needs planning or review, output a single fenced block titled **`## Paste into Opus (terminal)`** containing:
+
+1. One-line goal
+2. Files to read (paths only)
+3. Deliverable (e.g. `docs/05_docs-deploy.md`, review checklist, ADR draft)
+4. Constraints (no implementation, no commit, phased-workflow fields, project standing rules)
+
+After the user pastes Opus results back, Composer continues orchestration (handoff update, implementer prompt, or next Opus prompt).
+
+## Implementation
+
+- **`/implementer` subagent is allowed** — prefer it for multi-file phase execution.
+- User runs `npm run lint`, `npm run build`, `npm run dev`; Composer does not use browser MCP unless user asks.
+- No commit unless user explicitly asks.

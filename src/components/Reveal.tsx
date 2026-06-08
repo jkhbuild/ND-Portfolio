@@ -1,34 +1,36 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type ReactNode,
+} from "react";
+
+type RevealElement = "div" | "p" | "span" | "figure";
 
 type RevealProps = {
+  as?: RevealElement;
   className?: string;
   /** Optional stagger step: 1, 2 or 3 (adds a small delay). */
   delay?: 1 | 2 | 3;
   id?: string;
-  children: ReactNode;
+  style?: CSSProperties;
+  children?: ReactNode;
 };
 
 /**
- * Wraps content in a div that fades/slides in when scrolled into view.
+ * Wraps content in an element that fades/slides in when scrolled into view.
  * Honors prefers-reduced-motion (shows content immediately, no transform).
  */
-export function Reveal({ className = "", delay, id, children }: RevealProps) {
-  const ref = useRef<HTMLDivElement | null>(null);
+export function Reveal({ as = "div", className = "", delay, id, style, children }: RevealProps) {
+  const ref = useRef<HTMLElement | null>(null);
   const [inView, setInView] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-
-    if (
-      typeof window !== "undefined" &&
-      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
-    ) {
-      setInView(true);
-      return;
-    }
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -50,9 +52,21 @@ export function Reveal({ className = "", delay, id, children }: RevealProps) {
     .filter(Boolean)
     .join(" ");
 
-  return (
-    <div ref={ref} id={id} className={cls}>
-      {children}
-    </div>
-  );
+  const setRef = (node: HTMLElement | null) => {
+    ref.current = node;
+  };
+
+  if (as === "p") {
+    return <p ref={setRef} id={id} className={cls} style={style}>{children}</p>;
+  }
+
+  if (as === "span") {
+    return <span ref={setRef} id={id} className={cls} style={style}>{children}</span>;
+  }
+
+  if (as === "figure") {
+    return <figure ref={setRef} id={id} className={cls} style={style}>{children}</figure>;
+  }
+
+  return <div ref={setRef} id={id} className={cls} style={style}>{children}</div>;
 }

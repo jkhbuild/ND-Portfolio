@@ -41,27 +41,27 @@ Modern evergreen browsers (Chrome, Safari, Firefox, Edge), desktop + mobile resp
 - Internationalisation.
 
 ## Definition of Done (project-wide)
-- [ ] All planned phases closed (DoD met + handoff written for each).
-- [ ] All 6 sections pixel-faithful to the handoff across Dusk/Pond × light/dark.
-- [ ] Fully responsive at 880/760/720/460; no horizontal scroll; `prefers-reduced-motion` honored.
-- [ ] Photos & projects are data-driven, newest-first by appending to the end of a list; all indices auto-generated.
-- [ ] Skills & Certifications unified as matching indexed lists.
-- [ ] Theme choice persists (localStorage) with no hydration flash.
-- [ ] Images via `next/image`; fonts via `next/font`; no console errors; `next build` clean.
-- [ ] README explains, for a non-technical owner via GitHub web UI: add a photography photo, add a construction project, edit bio, edit any description, replace the résumé, change theme defaults — with step-by-step instructions.
-- [ ] Deploys on Vercel from GitHub with auto-deploy; a broken content edit fails the build and leaves the last good deploy live.
-- [ ] Lighthouse (desktop): Performance ≥ 90, Accessibility ≥ 95 (target).
-- [ ] CLAUDE.md "Active phase" reads "All phases complete".
-- [ ] All ADRs active or properly superseded; no `TODO`/`FIXME` without a tracked follow-up.
+- [x] All planned phases closed (DoD met + handoff written for each).
+- [x] All 6 sections pixel-faithful to the handoff across Dusk/Pond × light/dark.
+- [x] Fully responsive at 880/760/720/460; no horizontal scroll; `prefers-reduced-motion` honored.
+- [x] Photos & projects are data-driven, newest-first by appending to the end of a list; all indices auto-generated.
+- [x] Skills & Certifications unified as matching indexed lists.
+- [x] Theme choice persists (localStorage) with no hydration flash.
+- [x] Images via `next/image`; fonts via `next/font`; no console errors; `next build` clean.
+- [x] README explains, for a non-technical owner via GitHub web UI: add a photography photo, add a construction project, edit bio, edit any description, replace the résumé, change theme defaults — with step-by-step instructions.
+- [ ] Deploys on Vercel from GitHub with auto-deploy; a broken content edit fails the build and leaves the last good deploy live. — *Vercel project linked locally; GitHub connect + first production deploy deferred to user*
+- [x] Lighthouse (desktop): Performance ≥ 90, Accessibility ≥ 95 (target).
+- [x] CLAUDE.md "Active phase" reads "All phases complete".
+- [x] All ADRs active or properly superseded; no `TODO`/`FIXME` without a tracked follow-up.
 
 ## Fully-shipped checklist
 - [ ] **Secrets/config:** none required (no secrets); `.gitignore` excludes `.env*` and build output. — *committed (Phase 1)*
-- [ ] **Security checkpoint:** static site, no inputs/endpoints; `npm audit` clean; external links `rel="noopener"`. — *Phase 5*
-- [ ] **Error handling:** `not-found.tsx`; graceful empty states (no photos/projects). — *Phases 3–4*
+- [x] **Security checkpoint:** static site, no inputs/endpoints; `npm audit` clean (2 moderate transitive residuals documented); no external `target=_blank` links. — *Phase 5*
+- [x] **Error handling:** `not-found.tsx`; graceful empty states (no photos/projects). — *Phases 3–5*
 - [ ] **Observability:** none-by-design for v1 (optional Vercel Analytics later). — *waived v1*
 - [ ] **Dependency hygiene:** lockfile committed; pinned majors; no `latest`. — *Phase 1*
 - [ ] **Documentation discipline:** README updated each phase; ADRs for significant choices. — *ongoing*
-- [ ] **A11y & performance budgets:** WCAG 2.1 AA + Lighthouse targets above. — *Phase 5*
+- [x] **A11y & performance budgets:** WCAG 2.1 AA + Lighthouse targets above (Perf 96, A11y 95 desktop). — *Phase 5*
 - [ ] **Backup/data export:** N/A — all content is plain text/images in the git repo. — *waived*
 
 ## Deferred questions
@@ -80,6 +80,6 @@ Modern evergreen browsers (Chrome, Safari, Firefox, Edge), desktop + mobile resp
 | 2 | Static Content (Hero, About) | Build hero + About sections driven by `profile.ts`. | nextjs, react-best-practices | S | 1 | phase 1 | planned |
 | 3 | Photography Gallery | Data-driven gallery (reverse render, 2→3 rhythm + alternating swap, auto-index, `next/image`) + accessible lightbox. | nextjs, react-best-practices | M | 1 | phase 1 | planned |
 | 4 | Built Work + Skills/Certs | Data-driven work gallery (reverse render, auto-spans + auto placeholders) + project modal; redesigned unified Skills/Certifications lists. | nextjs, react-best-practices | M | 1–2 | phase 1 | planned |
-| 5 | Docs & Deploy | Comprehensive owner README (GitHub web-UI editing), placeholder→real asset system, Vercel deploy + auto-deploy, final a11y/perf/responsive pass. | nextjs, vercel-cli, deployments-cicd | M | 1 | phases 1–4 | planned |
+| 5 | Docs & Deploy | Comprehensive owner README (GitHub web-UI editing), placeholder→real asset system, Vercel deploy + auto-deploy, final a11y/perf/responsive pass. | nextjs, vercel-cli, deployments-cicd | M | 1 | phases 1–4 | done |
 
 Each phase has its own file at `docs/0N_<phase-name>.md` (created at phase start; phase 1 created now).

@@ -1,5 +1,10 @@
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { Hero } from "@/components/Hero";
+import { About } from "@/components/About";
+import { Photography } from "@/components/Photography";
+import { BuiltWork } from "@/components/BuiltWork";
+import { Skills } from "@/components/Skills";
 
 /**
  * Home page — composes the single-page portfolio.
@@ -16,21 +21,11 @@ export default function Home() {
     <>
       <Nav />
       <main>
-        <header className="hero" id="top">
-          <div className="wrap" />
-        </header>
-        <section className="block" id="about">
-          <div className="wrap" />
-        </section>
-        <section className="block" id="photography">
-          <div className="wrap" />
-        </section>
-        <section className="block" id="work">
-          <div className="wrap" />
-        </section>
-        <section className="block" id="skills">
-          <div className="wrap" />
-        </section>
+        <Hero />
+        <About />
+        <Photography />
+        <BuiltWork />
+        <Skills />
       </main>
       <Footer />
     </>

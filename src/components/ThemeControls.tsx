@@ -1,8 +1,80 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 import type { Mode, Palette } from "@/content/types";
 import { profile } from "@/content/profile";
+
+const THEME_EVENT = "nd-theme-change";
+const DEFAULT_SNAPSHOT = `${profile.theme.defaultPalette}:${profile.theme.defaultMode}`;
+const PALETTES: Palette[] = ["dusk", "pond"];
+const MODES: Mode[] = ["light", "dark"];
+
+function isPalette(value: string | null): value is Palette {
+  return PALETTES.includes(value as Palette);
+}
+
+function isMode(value: string | null): value is Mode {
+  return MODES.includes(value as Mode);
+}
+
+function readThemeSnapshot() {
+  if (typeof document === "undefined") return DEFAULT_SNAPSHOT;
+
+  const root = document.documentElement;
+  const storedPalette = safeStorageGet("nd-palette");
+  const storedMode = safeStorageGet("nd-mode");
+  const rootPalette = root.getAttribute("data-palette");
+  const rootMode = root.getAttribute("data-mode");
+  const palette = isPalette(storedPalette)
+    ? storedPalette
+    : isPalette(rootPalette)
+      ? rootPalette
+      : profile.theme.defaultPalette;
+  const mode = isMode(storedMode)
+    ? storedMode
+    : isMode(rootMode)
+      ? rootMode
+      : profile.theme.defaultMode;
+
+  return `${palette}:${mode}`;
+}
+
+function safeStorageGet(key: string) {
+  try {
+    return localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+function subscribeTheme(onStoreChange: () => void) {
+  window.addEventListener("storage", onStoreChange);
+  window.addEventListener(THEME_EVENT, onStoreChange);
+  return () => {
+    window.removeEventListener("storage", onStoreChange);
+    window.removeEventListener(THEME_EVENT, onStoreChange);
+  };
+}
+
+function writeTheme(next: { palette: Palette; mode: Mode }) {
+  document.documentElement.setAttribute("data-palette", next.palette);
+  document.documentElement.setAttribute("data-mode", next.mode);
+  try {
+    localStorage.setItem("nd-palette", next.palette);
+    localStorage.setItem("nd-mode", next.mode);
+  } catch {
+    /* ignore storage errors (private mode, etc.) */
+  }
+  window.dispatchEvent(new Event(THEME_EVENT));
+}
+
+function parseThemeSnapshot(snapshot: string) {
+  const [palette, mode] = snapshot.split(":");
+  return {
+    palette: isPalette(palette) ? palette : profile.theme.defaultPalette,
+    mode: isMode(mode) ? mode : profile.theme.defaultMode,
+  };
+}
 
 /**
  * The two segmented controls in the top bar (palette + light/dark).
@@ -10,44 +82,25 @@ import { profile } from "@/content/profile";
  * localStorage. The matching no-flash restore happens in app/layout.tsx.
  */
 export function ThemeControls() {
-  const [palette, setPalette] = useState<Palette>(profile.theme.defaultPalette);
-  const [mode, setMode] = useState<Mode>(profile.theme.defaultMode);
+  const snapshot = useSyncExternalStore(
+    subscribeTheme,
+    readThemeSnapshot,
+    () => DEFAULT_SNAPSHOT
+  );
+  const { palette, mode } = parseThemeSnapshot(snapshot);
 
-  // Sync UI state from whatever the no-flash script already applied.
+  // Keep the document attributes aligned with the rendered control state.
   useEffect(() => {
-    const root = document.documentElement;
-    const storedPalette =
-      (localStorage.getItem("nd-palette") as Palette | null) ??
-      (root.getAttribute("data-palette") as Palette | null) ??
-      profile.theme.defaultPalette;
-    const storedMode =
-      (localStorage.getItem("nd-mode") as Mode | null) ??
-      (root.getAttribute("data-mode") as Mode | null) ??
-      profile.theme.defaultMode;
-    setPalette(storedPalette);
-    setMode(storedMode);
-    root.setAttribute("data-palette", storedPalette);
-    root.setAttribute("data-mode", storedMode);
-  }, []);
+    document.documentElement.setAttribute("data-palette", palette);
+    document.documentElement.setAttribute("data-mode", mode);
+  }, [palette, mode]);
 
   function choosePalette(next: Palette) {
-    setPalette(next);
-    document.documentElement.setAttribute("data-palette", next);
-    try {
-      localStorage.setItem("nd-palette", next);
-    } catch {
-      /* ignore storage errors (private mode, etc.) */
-    }
+    writeTheme({ ...parseThemeSnapshot(readThemeSnapshot()), palette: next });
   }
 
   function chooseMode(next: Mode) {
-    setMode(next);
-    document.documentElement.setAttribute("data-mode", next);
-    try {
-      localStorage.setItem("nd-mode", next);
-    } catch {
-      /* ignore storage errors */
-    }
+    writeTheme({ ...parseThemeSnapshot(readThemeSnapshot()), mode: next });
   }
 
   return (
@@ -55,6 +108,7 @@ export function ThemeControls() {
       <div className="seg" role="group" aria-label="Colour story">
         <button
           type="button"
+          suppressHydrationWarning
           className={"seg-btn" + (palette === "dusk" ? " active" : "")}
           aria-pressed={palette === "dusk"}
           onClick={() => choosePalette("dusk")}
@@ -64,6 +118,7 @@ export function ThemeControls() {
         </button>
         <button
           type="button"
+          suppressHydrationWarning
           className={"seg-btn" + (palette === "pond" ? " active" : "")}
           aria-pressed={palette === "pond"}
           onClick={() => choosePalette("pond")}
@@ -75,6 +130,7 @@ export function ThemeControls() {
       <div className="seg" role="group" aria-label="Light or dark mode">
         <button
           type="button"
+          suppressHydrationWarning
           className={"seg-btn" + (mode === "light" ? " active" : "")}
           aria-pressed={mode === "light"}
           onClick={() => chooseMode("light")}
@@ -83,6 +139,7 @@ export function ThemeControls() {
         </button>
         <button
           type="button"
+          suppressHydrationWarning
           className={"seg-btn" + (mode === "dark" ? " active" : "")}
           aria-pressed={mode === "dark"}
           onClick={() => chooseMode("dark")}

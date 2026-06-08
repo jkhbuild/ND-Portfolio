@@ -18,6 +18,9 @@ import type { Photo } from "./types";
  *
  *  Keep every block looking like the others: a comma after each } and quotes
  *  around every piece of text.
+ *
+ *  New photos without an uploaded file can temporarily use
+ *  /images/photography/placeholder.svg until the real image is ready.
  * ============================================================================
  */
 export const photos: Photo[] = [
