@@ -45,7 +45,7 @@ const script = Pinyon_Script({
 export const metadata: Metadata = {
   title: "Nirmita Dave — Architect & Image-maker",
   description:
-    "Portfolio of Nirmita Dave — licensed architect, construction-management professional, and photographer. Built work, photography, skills & certifications.",
+    "Portfolio of Nirmita Dave — licensed architect and construction-management professional. Built work, vision, skills & certifications.",
 };
 
 // Applies the saved palette/mode before first paint so there is no theme flash.

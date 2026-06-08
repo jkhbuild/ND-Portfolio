@@ -4,7 +4,7 @@
          Space Mono (technical labels) · Hanken Grotesk (body)
    Fonts are loaded via next/font and exposed as --font-display / --font-body
    / --font-mono / --font-script (see app/layout.tsx).
-   Palettes drawn from her photographs — switchable from the top bar.
+   Palettes drawn from her work — switchable from the top bar.
    ========================================================================= */
 
 /* ---- Palette tokens ---------------------------------------------------- */
@@ -275,7 +275,7 @@ section.block { position: relative; z-index: 1; padding: 110px 0; }
 .about-meta .v { font-family: var(--font-display); font-size: 1.15rem; }
 
 /* =========================================================================
-   PHOTOGRAPHY
+   VISION (§ 02)
    ========================================================================= */
 .photo-intro { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
 .photo-gallery {
@@ -468,7 +468,7 @@ figure.work-tile .work-tile-trigger:focus-visible { outline: 2px solid var(--acc
 .pmodal.open { display: flex; }
 .pmodal-card {
   background: var(--paper); color: var(--ink); width: min(1040px, 100%);
-  max-height: 92vh; overflow: hidden; display: grid; grid-template-columns: 1.15fr 0.85fr;
+  max-height: 92vh; overflow: hidden; display: grid; grid-template-columns: 1.05fr 0.95fr;
   border: 1px solid var(--line); box-shadow: 0 40px 120px -30px rgba(0,0,0,.7);
 }
 .pmodal-media { position: relative; background: var(--paper-2); min-height: 320px; }
@@ -481,7 +481,10 @@ figure.work-tile .work-tile-trigger:focus-visible { outline: 2px solid var(--acc
 }
 .pmodal-media.placeholder span { font-family: var(--font-mono); font-size: 0.66rem;
   letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); }
-.pmodal-body { padding: 40px 38px; overflow-y: auto; display: flex; flex-direction: column; }
+.pmodal-body {
+  padding: 40px 38px; min-height: 0; overflow-y: auto;
+  display: flex; flex-direction: column; -webkit-overflow-scrolling: touch;
+}
 .pmodal-body .pm-no { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.16em;
   color: var(--accent); margin-bottom: 14px; }
 .pmodal-body h3 { font-family: var(--font-display); font-weight: 500; font-size: 2.2rem;
@@ -489,19 +492,30 @@ figure.work-tile .work-tile-trigger:focus-visible { outline: 2px solid var(--acc
 .pmodal-body .pm-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
 .pmodal-body .pm-tags span { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.1em;
   text-transform: uppercase; color: var(--ink-2); border: 1px solid var(--line); padding: 4px 10px; border-radius: 999px; }
-.pmodal-body .pm-desc { color: var(--ink-2); font-size: 1.04rem; line-height: 1.6; text-wrap: pretty; }
-.pmodal-body .pm-meta { margin-top: auto; padding-top: 26px; display: grid; grid-template-columns: repeat(3,1fr);
-  gap: 1px; background: var(--line); border: 1px solid var(--line); }
-.pmodal-body .pm-meta div { background: var(--paper); padding: 14px 16px; }
-.pmodal-body .pm-meta .k { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--ink-3); margin-bottom: 5px; }
-.pmodal-body .pm-meta .v { font-family: var(--font-display); font-size: 1.02rem; }
+.pmodal-body .pm-desc {
+  color: var(--ink-2); font-size: 1.04rem; line-height: 1.6; text-wrap: pretty;
+  margin-bottom: 8px;
+}
+.pmodal-body .pm-meta {
+  flex-shrink: 0; margin-top: auto; padding-top: 26px;
+  display: grid; grid-template-columns: 1.35fr 0.55fr 1.1fr;
+  gap: 1px; background: var(--line); border: 1px solid var(--line);
+}
+.pmodal-body .pm-meta div { background: var(--paper); padding: 18px 20px; }
+.pmodal-body .pm-meta .k { font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--ink-3); margin-bottom: 6px; }
+.pmodal-body .pm-meta .v {
+  font-family: var(--font-display); font-size: 1.12rem; line-height: 1.35;
+  text-wrap: pretty;
+}
 .pmodal-x { position: absolute; top: 16px; right: 18px; z-index: 3;
   font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; color: #f4f0e8; cursor: pointer;
   background: rgba(12,11,10,0.55); padding: 6px 11px; border-radius: 999px; border: 0; }
 @media (max-width: 760px){
   .pmodal-card { grid-template-columns: 1fr; max-height: 90vh; overflow-y: auto; }
   .pmodal-media { aspect-ratio: 16/10; min-height: 0; }
+  .pmodal-body { overflow-y: visible; }
+  .pmodal-body .pm-meta { grid-template-columns: 1fr 0.65fr 1fr; }
 }
 
 /* =========================================================================

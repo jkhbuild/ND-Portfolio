@@ -3,7 +3,7 @@ import { Reveal } from "./Reveal";
 
 const LINKS = [
   { href: "#about", label: "About" },
-  { href: "#photography", label: "Photography" },
+  { href: "#photography", label: "Vision" },
   { href: "#work", label: "Built Work" },
   { href: "#top", label: "↑ Top" },
 ];

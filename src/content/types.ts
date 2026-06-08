@@ -9,7 +9,7 @@
 export type Palette = "dusk" | "pond";
 export type Mode = "light" | "dark";
 
-/** One photograph in the Photography gallery. */
+/** One image in the Vision gallery (§ 02). */
 export interface Photo {
   /** Image path under /public — e.g. "/images/photography/lotus.jpeg" */
   src: string;
@@ -115,7 +115,7 @@ export interface Profile {
     sectionIndex: string;
     /** Section heading. */
     title: string;
-    /** Small left intro line, e.g. 'Series — "Still / Unstill" · 2021–2025'. */
+    /** Small left intro line, e.g. "Practice — Architecture · Construction Management · Design". */
     series: string;
     /** Section sub-heading. */
     lead: string;

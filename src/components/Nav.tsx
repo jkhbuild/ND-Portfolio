@@ -6,7 +6,7 @@ import { ThemeControls } from "./ThemeControls";
 
 const LINKS = [
   { href: "#about", n: "01", label: "About" },
-  { href: "#photography", n: "02", label: "Photography" },
+  { href: "#photography", n: "02", label: "Vision" },
   { href: "#work", n: "03", label: "Built Work" },
   { href: "#skills", n: "04", label: "Skills" },
 ];

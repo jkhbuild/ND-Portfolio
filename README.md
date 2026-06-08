@@ -1,7 +1,7 @@
 # Nirmita Dave — Portfolio
 
-Your personal portfolio website. Everything visitors see — your bio, photographs,
-construction projects, skills, and résumé — can be edited **directly on GitHub**
+Your personal portfolio website. Everything visitors see — your bio, Vision
+gallery images, construction projects, skills, and résumé — can be edited **directly on GitHub**
 through the web browser. No coding tools required.
 
 When you save changes on the `main` branch, the site rebuilds automatically on
@@ -15,7 +15,7 @@ Vercel. If a change has a typo or broken formatting, the build fails and the
 | What you want to change | Where to edit |
 |---|---|
 | Name, hero text, bio, section headings, footer, theme defaults | `src/content/profile.ts` |
-| Photography gallery | `src/content/photos.ts` + images in `public/images/photography/` |
+| Vision gallery (§ 02) | `src/content/photos.ts` + images in `public/images/photography/` |
 | Construction projects (Built Work) | `src/content/projects.ts` + images in `public/images/work/` |
 | Software & certifications lists | `src/content/skills.ts` |
 | Portrait photo | `public/images/portrait/` + `profile.ts` portrait fields |
@@ -39,7 +39,7 @@ Never paste your bio or project descriptions into the component files under
 
 ---
 
-## 1. Add a photograph
+## 1. Add a Vision image
 
 **Step A — upload the image file**
 
@@ -58,14 +58,14 @@ Never paste your bio or project descriptions into the component files under
 4. Paste it **just above** the closing `];` at the very end of the list.
 5. Edit the four fields:
    - `src` — path to your file, e.g. `"/images/photography/canal-bridge.jpeg"`
-   - `title` — the photo title shown on the site
+   - `title` — the image title shown on the site
    - `meta` — the small grey caption (location, mood, etc.)
    - `alt` — a short description for screen readers (what is in the image?)
 6. Commit to `main`.
 
 **Ordering rule:** The entry at the **bottom** of the list appears **first**
 (top) on the website. Never reorder entries or type numbers yourself — just keep
-appending new photos to the bottom.
+appending new images to the bottom.
 
 Until you upload a real file, you can temporarily set `src` to
 `"/images/photography/placeholder.svg"`.
@@ -130,9 +130,9 @@ size from your photo editor or phone).
 
 - **Project descriptions** — edit the `desc` field in `src/content/projects.ts`
   for the project you want to change.
-- **Photography captions** — edit `title` and `meta` in `src/content/photos.ts`.
+- **Vision captions** — edit `title` and `meta` in `src/content/photos.ts`.
 - **Section intros** — in `src/content/profile.ts`, edit fields under
-  `photography`, `builtWork`, or `skills` (e.g. `lead`, `intro`, `series`).
+  `photography` (Vision section), `builtWork`, or `skills` (e.g. `lead`, `intro`, `series`).
 - **Skills lists** — edit `src/content/skills.ts` (`software` array and
   `certifications` entries).
 

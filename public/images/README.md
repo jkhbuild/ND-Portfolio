@@ -5,7 +5,7 @@ content file in `src/content/`. Filenames are case-sensitive.
 
 ## Folders
 - `portrait/` — the About portrait. Referenced in Phase 2.
-- `photography/` — gallery photos. Listed in `src/content/photos.ts`.
+- `photography/` — Vision gallery images. Listed in `src/content/photos.ts`.
 - `work/` — construction project photos. Listed in `src/content/projects.ts`.
 
 ## Files the site currently expects
@@ -13,7 +13,7 @@ These paths are referenced by the content files today. The site shows a broken
 image until the real file is added (placeholders for projects appear
 automatically if you omit a project image).
 
-**Photography** (`photography/`)
+**Vision** (`photography/`)
 - `tree-pond.jpeg`
 - `brick-window.jpeg`
 - `pink-wires.jpeg`

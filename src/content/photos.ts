@@ -2,7 +2,7 @@ import type { Photo } from "./types";
 
 /**
  * ============================================================================
- *  PHOTOGRAPHY  —  your photo gallery
+ *  VISION  —  your image gallery (§ 02)
  * ============================================================================
  *
  *  HOW TO ADD A PHOTO  (3 steps):
@@ -25,22 +25,10 @@ import type { Photo } from "./types";
  */
 export const photos: Photo[] = [
   {
-    src: "/images/photography/tree-pond.jpeg",
-    title: "The Tree That Stayed",
-    meta: "Flooded grove · Rajasthan",
-    alt: "A lone tree standing in still water at dusk",
-  },
-  {
-    src: "/images/photography/brick-window.jpeg",
-    title: "Shut for the Season",
-    meta: "Old town · brick & deodar",
-    alt: "A weathered wooden window set in an old brick wall",
-  },
-  {
-    src: "/images/photography/pink-wires.jpeg",
-    title: "Crossed Wires",
-    meta: "Pink hour · overhead lines",
-    alt: "Telephone wires crossing a pink evening sky",
+    src: "/images/photography/swan.jpeg",
+    title: "Mute Swan, Still Canal",
+    meta: "Green water · midday",
+    alt: "A white swan on still green water",
   },
   {
     src: "/images/photography/lotus.jpeg",
@@ -49,10 +37,22 @@ export const photos: Photo[] = [
     alt: "A pink lotus flower among green lily pads",
   },
   {
-    src: "/images/photography/swan.jpeg",
-    title: "Mute Swan, Still Canal",
-    meta: "Green water · midday",
-    alt: "A white swan on still green water",
+    src: "/images/photography/pink-wires.jpeg",
+    title: "Crossed Wires",
+    meta: "Pink hour · overhead lines",
+    alt: "Telephone wires crossing a pink evening sky",
+  },
+  {
+    src: "/images/photography/brick-window.jpeg",
+    title: "Shut for the Season",
+    meta: "Old town · brick & deodar",
+    alt: "A weathered wooden window set in an old brick wall",
+  },
+  {
+    src: "/images/photography/tree-pond.jpeg",
+    title: "The Tree That Stayed",
+    meta: "Flooded grove · Rajasthan",
+    alt: "A lone tree standing in still water at dusk",
   },
   // ↓↓↓ ADD YOUR NEW PHOTO BELOW THIS LINE (newest shows first) ↓↓↓
 ];
