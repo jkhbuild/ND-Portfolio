@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en" data-palette="dusk" data-mode="light" data-display="cormorant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nirmita Dave — Architect & Image-maker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Cormorant+Garamond:ital,wght@0,400..600;1,400..600&family=Hanken+Grotesk:wght@300..600&family=Pinyon+Script&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body class="show-grain">
+
+<div class="grain-layer"></div>
+
+<!-- ============================ NAV ============================ -->
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="nav-mark">Nirmita<b>Dave · Architect</b></a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#about"><span class="n">01</span>About</a>
+        <a href="#photography"><span class="n">02</span>Photography</a>
+        <a href="#work"><span class="n">03</span>Built Work</a>
+        <a href="#skills"><span class="n">04</span>Skills</a>
+      </div>
+      <div class="nav-theme">
+        <div class="seg" id="paletteSeg" role="group" aria-label="Colour story">
+          <button type="button" class="seg-btn" data-palette="dusk"><span class="sw sw-dusk"></span>Dusk</button>
+          <button type="button" class="seg-btn" data-palette="pond"><span class="sw sw-pond"></span>Pond</button>
+        </div>
+        <div class="seg" id="modeSeg" role="group" aria-label="Light or dark mode">
+          <button type="button" class="seg-btn" data-mode="light" aria-label="Light mode">Light</button>
+          <button type="button" class="seg-btn" data-mode="dark" aria-label="Dark mode">Dark</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================ HERO ============================ -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-title">
+      <p class="mono reveal d1" style="margin-bottom:0.4em;">Architect &amp; Image-maker — building inside the lines</p>
+      <h1 class="hero-name no-script">
+        <span class="hn-script reveal d1">Nirmita</span>
+        <span class="hn-display reveal d2">Dave</span>
+      </h1>
+    </div>
+
+    <div class="hero-sub reveal d3">
+      <p>
+        <em>Drawn to the grid, devoted to the glitch.</em> A young licensed
+        architect who builds precise structures by day and photographs
+        imprecise, tender things the rest of the time.
+      </p>
+      <p class="mono" style="line-height:1.9; color:var(--ink-3);">
+        — Bachelor of Architecture<br />
+        — Licensed, Council of Architecture (India)<br />
+        — Working in New York
+      </p>
+    </div>
+
+    <div class="hero-actions reveal d3">
+      <a href="assets/Nirmita-Dave-CV.pdf" download class="cv-btn" aria-label="Download résumé (PDF)">
+        <span class="cv-arrow">↓</span> Download Résumé
+        <span class="cv-ext">PDF</span>
+      </a>
+      <a href="#about" class="hero-scroll mono"><span class="dot"></span> Scroll — begin the section index</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============================ ABOUT ============================ -->
+<section class="block" id="about">
+  <div class="wrap">
+    <div class="block-head reveal">
+      <div class="section-index">§ 01</div>
+      <h2>About</h2>
+    </div>
+
+    <div class="about-grid">
+      <figure class="portrait-frame reveal">
+        <div class="pf-img">
+          <img src="assets/portrait.jpeg" alt="Portrait of Nirmita Dave" />
+        </div>
+        <figcaption>Nirmita Dave — self, on film</figcaption>
+      </figure>
+
+      <div class="about-body reveal d1">
+        <p>I design buildings the way I take photographs — looking for the
+          one honest angle, then holding still long enough for the light to
+          arrive.</p>
+        <p>Trained as an architect, I spend my days inside coordination
+          models, construction schedules and the unglamorous arithmetic of
+          getting a thing actually built. I like that rigour. I like knowing
+          a wall will stand. But the part of me that <span class="hl">refuses to
+          fully conform</span> keeps wandering off to photograph drowned
+          trees, tangled wires and a single lotus that didn't ask permission
+          to bloom.</p>
+        <p>This portfolio holds both halves: the measured work and the
+          unmeasured looking. One keeps the other honest.</p>
+
+        <div class="about-meta">
+          <div><div class="k">Discipline</div><div class="v">Architecture · BIM · Delivery</div></div>
+          <div><div class="k">Also</div><div class="v">Construction Management, QAQC, Photography</div></div>
+          <div><div class="k">Based</div><div class="v">New York / Ahmedabad</div></div>
+          <div><div class="k">Practising since</div><div class="v">2018</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= PHOTOGRAPHY ========================= -->
+<section class="block" id="photography">
+  <div class="wrap">
+    <div class="block-head reveal">
+      <div class="section-index">§ 02</div>
+      <h2>Photography</h2>
+      <p class="lead">Found light, off the clock. Shot on phone &amp; film, untidy on purpose.</p>
+    </div>
+
+    <div class="photo-intro reveal d1">
+      <p class="mono">Series — “Still / Unstill” · 2021–2025</p>
+      <p class="mono">Tap any frame to enlarge ↗</p>
+    </div>
+
+    <div class="photo-gallery" id="photoGallery"></div>
+  </div>
+</section>
+
+<!-- ========================= BUILT WORK ========================= -->
+<section class="block" id="work">
+  <div class="wrap">
+    <div class="block-head reveal">
+      <div class="section-index">§ 03</div>
+      <h2>Built Work</h2>
+    </div>
+
+    <div class="photo-intro reveal d1">
+      <p class="mono">Selected — heavy civil &amp; transit</p>
+      <p class="mono">Tap any frame to enlarge ↗</p>
+    </div>
+
+    <div class="work-gallery">
+      <figure class="work-tile span7 reveal"
+        data-img="assets/tonnelle.jpg" data-no="01"
+        data-title="Tonnelle Avenue Bridge"
+        data-tags="Heavy Civil|Bridge Replacement|Grade Separation"
+        data-desc="Replacement of the Route 139 structure over Tonnelle Avenue — staged demolition and reconstruction kept the highway and local streets moving while new abutments, deck and retaining walls went in below. Day-to-day coordination of schedule, submittals, RFIs and site safety across a tight, traffic-bound footprint."
+        data-loc="Jersey City, NJ" data-year="2023" data-role="Project Engineer · Coordination">
+        <span class="wt-corner"></span>
+        <img src="assets/tonnelle.jpg" alt="Aerial view of the Tonnelle Avenue bridge replacement site" loading="lazy" />
+        <div class="wt-label">
+          <div>
+            <div class="wt-no">01</div>
+            <div class="wt-name">Tonnelle Avenue Bridge</div>
+            <div class="wt-kind">Heavy Civil · Jersey City, NJ</div>
+          </div>
+          <span class="wt-open">View ↗</span>
+        </div>
+      </figure>
+
+      <figure class="work-tile span5 reveal d1"
+        data-img="assets/pkg6.jpg" data-no="02"
+        data-title="MTA PKG 6 — ADA Upgrades"
+        data-tags="Transit|ADA Accessibility|Structural Steel"
+        data-desc="Accessibility upgrades on the elevated subway line — new elevators, structural steel and platform reconstruction delivered over live tracks. Field coordination, documentation and RFI management threaded around active service windows and overnight outages."
+        data-loc="New York, NY" data-year="2022" data-role="Field Engineer · Coordination">
+        <span class="wt-corner"></span>
+        <img src="assets/pkg6.jpg" alt="Workers lifting a steel beam on an elevated subway structure" loading="lazy" />
+        <div class="wt-label">
+          <div>
+            <div class="wt-no">02</div>
+            <div class="wt-name">MTA PKG 6 — ADA Upgrades</div>
+            <div class="wt-kind">Transit · New York, NY</div>
+          </div>
+          <span class="wt-open">View ↗</span>
+        </div>
+      </figure>
+
+      <figure class="work-tile span5 placeholder reveal"
+        data-no="03" data-title="Selected Project"
+        data-tags="Infrastructure|Coordination"
+        data-desc="Project details coming soon — drop in imagery and a short write-up when ready."
+        data-loc="—" data-year="—" data-role="—">
+        <span class="wt-corner"></span>
+        <div class="wt-label">
+          <div>
+            <div class="wt-no">03</div>
+            <div class="wt-name">Selected Project</div>
+            <div class="wt-kind">Details to follow</div>
+          </div>
+          <span class="wt-open">View ↗</span>
+        </div>
+      </figure>
+
+      <figure class="work-tile span7 placeholder lift reveal d1"
+        data-no="04" data-title="Selected Project"
+        data-tags="Infrastructure|Delivery"
+        data-desc="Project details coming soon — drop in imagery and a short write-up when ready."
+        data-loc="—" data-year="—" data-role="—">
+        <span class="wt-corner"></span>
+        <div class="wt-label">
+          <div>
+            <div class="wt-no">04</div>
+            <div class="wt-name">Selected Project</div>
+            <div class="wt-kind">Details to follow</div>
+          </div>
+          <span class="wt-open">View ↗</span>
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= SKILLS ========================= -->
+<section class="block" id="skills">
+  <div class="wrap">
+    <div class="block-head reveal">
+      <div class="section-index">§ 04</div>
+      <h2>Skills &amp; Certifications</h2>
+      <p class="lead">The technical spine behind the work — tools, codes &amp; credentials.</p>
+    </div>
+
+    <div class="skills-wrap">
+      <div class="skills-col reveal">
+        <h3>Software <span>08</span></h3>
+        <div class="chips">
+          <span class="chip">Primavera Unifier</span>
+          <span class="chip">Kahua</span>
+          <span class="chip">AutoCAD</span>
+          <span class="chip">Revit</span>
+          <span class="chip">Procore</span>
+          <span class="chip">BIM</span>
+          <span class="chip">Microsoft Project</span>
+          <span class="chip">Microsoft Office</span>
+        </div>
+      </div>
+
+      <div class="skills-col reveal d1">
+        <h3>Certifications <span>09</span></h3>
+        <div class="certs">
+          <div class="cert"><span class="cn">01</span><span class="cv">OSHA 30 <small>Construction Safety</small></span></div>
+          <div class="cert"><span class="cn">02</span><span class="cv">OSHA 10 <small>Construction Safety</small></span></div>
+          <div class="cert"><span class="cn">03</span><span class="cv">Primavera P6 <small>Scheduling</small></span></div>
+          <div class="cert"><span class="cn">04</span><span class="cv">NYC-SST 16-Hour <small>Site Safety Training</small></span></div>
+          <div class="cert"><span class="cn">05</span><span class="cv">Licensed Architect <small>Council of Architecture, India</small></span></div>
+          <div class="cert"><span class="cn">06</span><span class="cv">Procore Certified <small>BIM Manager · Project Management</small></span></div>
+          <div class="cert"><span class="cn">07</span><span class="cv">Google Project Management <small>Professional Certificate</small></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= FOOTER ========================= -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-big reveal">Nirmita Dave<b>Architect &amp; Image-maker</b></div>
+    <div class="foot-row reveal d1">
+      <div class="mono">
+        Architect &amp; image-maker<br />
+        Building inside the lines — photographing outside them.
+      </div>
+      <div class="foot-links">
+        <a href="#about">About</a>
+        <a href="#photography">Photography</a>
+        <a href="#work">Built Work</a>
+        <a href="#top">↑ Top</a>
+      </div>
+    </div>
+    <div class="mono" style="margin-top:40px; color:var(--ink-3);">© 2026 Nirmita Dave — all images her own.</div>
+  </div>
+</footer>
+
+<!-- ========================= LIGHTBOX ========================= -->
+<div class="lightbox" id="lightbox">
+  <span class="lb-x" id="lbClose">[ esc ] close ✕</span>
+  <img id="lbImg" src="" alt="" />
+  <div class="lb-cap" id="lbCap"></div>
+</div>
+
+<!-- ========================= PROJECT MODAL ========================= -->
+<div class="pmodal" id="pmodal">
+  <div class="pmodal-card">
+    <div class="pmodal-media" id="pmMedia">
+      <span class="pmodal-x" id="pmClose">[ esc ] close ✕</span>
+      <img id="pmImg" src="" alt="" />
+    </div>
+    <div class="pmodal-body">
+      <div class="pm-no" id="pmNo">01</div>
+      <h3 id="pmTitle"></h3>
+      <div class="pm-tags" id="pmTags"></div>
+      <p class="pm-desc" id="pmDesc"></p>
+      <div class="pm-meta">
+        <div><div class="k">Location</div><div class="v" id="pmLoc"></div></div>
+        <div><div class="k">Year</div><div class="v" id="pmYear"></div></div>
+        <div><div class="k">Role</div><div class="v" id="pmRole"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========================= TWEAKS ========================= -->
+<div id="tweaks-root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="tweaks-app.jsx"></script>
+
+<script>
+/* ---- Top-bar theme controls (palette + light/dark, persisted) ---- */
+(function () {
+  var r = document.documentElement;
+  var pal = localStorage.getItem("nd-palette") || "dusk";
+  var mode = localStorage.getItem("nd-mode") || "light";
+  function sync() {
+    r.setAttribute("data-palette", pal);
+    r.setAttribute("data-mode", mode);
+    document.querySelectorAll("#paletteSeg .seg-btn").forEach(function (b) {
+      var on = b.getAttribute("data-palette") === pal;
+      b.classList.toggle("active", on); b.setAttribute("aria-pressed", on);
+    });
+    document.querySelectorAll("#modeSeg .seg-btn").forEach(function (b) {
+      var on = b.getAttribute("data-mode") === mode;
+      b.classList.toggle("active", on); b.setAttribute("aria-pressed", on);
+    });
+  }
+  document.addEventListener("click", function (e) {
+    var pb = e.target.closest && e.target.closest("#paletteSeg .seg-btn");
+    if (pb) { pal = pb.getAttribute("data-palette"); localStorage.setItem("nd-palette", pal); sync(); return; }
+    var mb = e.target.closest && e.target.closest("#modeSeg .seg-btn");
+    if (mb) { mode = mb.getAttribute("data-mode"); localStorage.setItem("nd-mode", mode); sync(); }
+  });
+  sync();
+})();
+
+/* ---- Photography gallery — data-driven -------------------------------
+   Rows auto-follow a 2 → 3 → 2 → 3 rhythm. Each successive 2-photo row
+   swaps its tall/wide sides (row 1: tall-left, wide-right; row 3: wide-left,
+   tall-right; etc.). To add future photos, just append to PHOTOS below. */
+(function () {
+  var PHOTOS = [
+    { src: "assets/tree-pond.jpeg",     title: "The Tree That Stayed",   meta: "Flooded grove · Rajasthan",  alt: "A lone tree standing in still water at dusk" },
+    { src: "assets/brick-window.jpeg",  title: "Shut for the Season",    meta: "Old town · brick & deodar",  alt: "A weathered wooden window set in an old brick wall" },
+    { src: "assets/pink-wires.jpeg",    title: "Crossed Wires",          meta: "Pink hour · overhead lines", alt: "Telephone wires crossing a pink evening sky" },
+    { src: "assets/lotus.jpeg",         title: "Lotus, Before Noon",     meta: "Lily pond · single bloom",   alt: "A pink lotus flower among green lily pads" },
+    { src: "assets/swan.jpeg",          title: "Mute Swan, Still Canal", meta: "Green water · midday",       alt: "A white swan on still green water" }
+    // ↓ add future photos here — the row pattern handles the rest.
+  ];
+
+  var host = document.getElementById("photoGallery");
+  if (!host) return;
+  var total = PHOTOS.length;
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function esc(s) { var d = document.createElement("div"); d.textContent = s == null ? "" : s; return d.innerHTML; }
+
+  function tile(p, i, sizeClass, extra) {
+    var f = document.createElement("figure");
+    f.className = "shot " + sizeClass + " reveal" + (extra ? " " + extra : "");
+    f.setAttribute("data-full", p.src);
+    f.setAttribute("data-title", p.title);
+    f.setAttribute("data-meta", p.meta);
+    f.innerHTML =
+      '<img src="' + p.src + '" alt="' + esc(p.alt || p.title) + '" loading="lazy" />' +
+      '<figcaption class="cap"><span class="t">' + esc(p.title) + '</span><span class="x">' + esc(p.meta) + "</span></figcaption>";
+    return f;
+  }
+
+  var idx = 0, wantTwo = true, twoRowCount = 0;
+  while (idx < total) {
+    if (wantTwo) {
+      var a = PHOTOS[idx], b = PHOTOS[idx + 1];
+      if (b) {
+        if (twoRowCount % 2 === 0) {        // tall-left, wide-right
+          host.appendChild(tile(a, idx, "s-tall"));
+          host.appendChild(tile(b, idx + 1, "s-wide", "d1"));
+        } else {                            // swapped: wide-left, tall-right
+          host.appendChild(tile(b, idx + 1, "s-wide"));
+          host.appendChild(tile(a, idx, "s-tall", "d1"));
+        }
+        idx += 2;
+      } else {                              // lone leftover photo
+        host.appendChild(tile(a, idx, "s-wide"));
+        idx += 1;
+      }
+      twoRowCount++;
+    } else {                                // 3-photo row
+      var three = PHOTOS.slice(idx, idx + 3);
+      three.forEach(function (p, k) {
+        host.appendChild(tile(p, idx + k, "s-third", k === 1 ? "lift d1" : (k === 2 ? "d2" : "")));
+      });
+      idx += three.length;
+    }
+    wantTwo = !wantTwo;
+  }
+})();
+
+/* ---- Scroll reveals (rect-based — robust across preview hosts) ---- */
+(function () {
+  var els = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+  function check() {
+    var h = window.innerHeight || document.documentElement.clientHeight;
+    for (var i = els.length - 1; i >= 0; i--) {
+      var el = els[i];
+      var r = el.getBoundingClientRect();
+      if (r.top < h * 0.92 && r.bottom > 0) {
+        el.classList.add("in");
+        els.splice(i, 1);
+      }
+    }
+  }
+  window.addEventListener("scroll", check, { passive: true });
+  window.addEventListener("resize", check);
+  check();
+  // safety net in case fonts/layout shift late
+  setTimeout(check, 300);
+  setTimeout(check, 900);
+})();
+
+/* ---- Nav shadow + active link ---- */
+(function () {
+  var nav = document.getElementById("nav");
+  var links = Array.prototype.slice.call(document.querySelectorAll(".nav-links a"));
+  var sections = links.map(function (a) { return document.querySelector(a.getAttribute("href")); });
+  function onScroll() {
+    nav.classList.toggle("scrolled", window.scrollY > 40);
+    var pos = window.scrollY + window.innerHeight * 0.35;
+    var idx = 0;
+    for (var i = 0; i < sections.length; i++) {
+      if (sections[i] && sections[i].offsetTop <= pos) idx = i;
+    }
+    links.forEach(function (a, i) { a.classList.toggle("active", i === idx); });
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+})();
+
+/* ---- Lightbox (photography) ---- */
+(function () {
+  var lb = document.getElementById("lightbox");
+  var img = document.getElementById("lbImg");
+  var cap = document.getElementById("lbCap");
+  function open(full, title, meta) {
+    img.src = full; img.alt = title;
+    cap.textContent = title + " — " + meta;
+    lb.classList.add("open");
+  }
+  function close() { lb.classList.remove("open"); img.src = ""; }
+  document.querySelectorAll("#photography figure.shot").forEach(function (f) {
+    f.addEventListener("click", function () {
+      open(f.getAttribute("data-full"), f.getAttribute("data-title"), f.getAttribute("data-meta"));
+    });
+  });
+  document.getElementById("lbClose").addEventListener("click", close);
+  lb.addEventListener("click", function (e) { if (e.target === lb) close(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+})();
+
+/* ---- Project modal (built work) ---- */
+(function () {
+  var pm = document.getElementById("pmodal");
+  var media = document.getElementById("pmMedia");
+  var img = document.getElementById("pmImg");
+  function setTags(str) {
+    var box = document.getElementById("pmTags");
+    box.innerHTML = "";
+    (str || "").split("|").filter(Boolean).forEach(function (t) {
+      var s = document.createElement("span"); s.textContent = t; box.appendChild(s);
+    });
+  }
+  function open(tile) {
+    var src = tile.getAttribute("data-img");
+    if (src) {
+      media.classList.remove("placeholder");
+      img.style.display = ""; img.src = src; img.alt = tile.getAttribute("data-title");
+    } else {
+      media.classList.add("placeholder");
+      img.style.display = "none"; img.src = "";
+    }
+    document.getElementById("pmNo").textContent = "§ " + tile.getAttribute("data-no");
+    document.getElementById("pmTitle").textContent = tile.getAttribute("data-title");
+    setTags(tile.getAttribute("data-tags"));
+    document.getElementById("pmDesc").textContent = tile.getAttribute("data-desc");
+    document.getElementById("pmLoc").textContent = tile.getAttribute("data-loc");
+    document.getElementById("pmYear").textContent = tile.getAttribute("data-year");
+    document.getElementById("pmRole").textContent = tile.getAttribute("data-role");
+    pm.classList.add("open");
+  }
+  function close() { pm.classList.remove("open"); }
+  document.querySelectorAll("#work figure.work-tile").forEach(function (f) {
+    f.addEventListener("click", function () { open(f); });
+  });
+  document.getElementById("pmClose").addEventListener("click", function (e) { e.stopPropagation(); close(); });
+  pm.addEventListener("click", function (e) { if (e.target === pm) close(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+})();
+</script>
+</body>
+</html>
